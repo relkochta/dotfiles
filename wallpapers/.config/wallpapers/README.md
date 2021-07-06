@@ -1,0 +1,3 @@
+# Credits
+
+* mjswooper (imgur dumps)

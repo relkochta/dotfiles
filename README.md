@@ -6,4 +6,4 @@ These are intended to be deployed using Ansible -- find more information [here](
 
 ## Credits
 
-[ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts) - Roboto Mono Nerd Fonts (MIT License, available in fonts/.fonts/LICENSE-nerdfonts.txt)
+[ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts) - Nerd Fonts (MIT License, available in fonts/.fonts/LICENSE-nerdfonts.txt)

@@ -20,7 +20,7 @@ def weather(location="", metric=False):
 
 def main():
         try:
-                with open("/home/relkochta/.secrets/secrets.json") as f:
+                with open(os.path.expanduser("~/.secrets/secrets.json")) as f:
                         secrets = json.load(f)
                         location = secrets["weather_location"]
         except Exception:

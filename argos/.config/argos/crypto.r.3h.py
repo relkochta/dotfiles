@@ -16,7 +16,7 @@ def crypto(currencies, key):
 
 def main():
         try:
-                with open("/home/relkochta/.secrets/secrets.json") as f:
+                with open(os.path.expanduser("~/.secrets/secrets.json")) as f:
                         secrets = json.load(f)
                         key = secrets["coinmarketcap_apikey"]
         except Exception:

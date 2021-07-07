@@ -8,7 +8,7 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # --- Oh-My-Zsh Location ---
-export ZSH="/home/relkochta/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # --- Oh-My-Zsh Configuration ---
 ZSH_THEME="powerlevel10k/powerlevel10k"

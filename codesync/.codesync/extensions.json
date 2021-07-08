@@ -1,7 +1,0 @@
-{
-    "extensions": [
-        "esbenp.prettier-vscode",
-        "golf1052.code-sync",
-        "ms-python.python"
-    ]
-}

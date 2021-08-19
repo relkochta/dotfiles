@@ -30,5 +30,6 @@ export EDITOR=vim
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/bin"
 
 # Aliases
-alias vi=vim
+alias vi=nvim
+alias vim=nvim
 

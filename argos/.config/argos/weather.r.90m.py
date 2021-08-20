@@ -14,7 +14,7 @@ def weather(location="", metric=True):
         if "°F" in weather or "°C" in weather:
                 # There seems to be a really strange
                 # character being inserted here,
-                return (weather[0:1] + weather[2:]).replace('  ', ' ')
+                return city + '  ' + (weather[0:1] + weather[2:]).replace('  ', ' ')
         else:
                 return None
 

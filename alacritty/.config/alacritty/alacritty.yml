@@ -6,6 +6,11 @@ font:
     style: Regular
   size: 13.0
 
+window:
+  dimensions:
+    columns: 150
+    lines: 46
+
 # Colors (One Dark)
 colors:
   # Default colors

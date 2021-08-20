@@ -5,8 +5,8 @@ import geocoder
 import os, sys
 import json
 
-def weather(location="", metric=False):
-        url = "http://wttr.in/%s?format=1%s" % (location, "&u" if not metric else "")
+def weather(location="", metric=True):
+        url = "http://wttr.in/%s?format=1%s" % (location, "&u" if not metric else "&m")
         r = requests.get(url)
         weather = r.text.rstrip("\n")
         city = geocoder.ip("me").city if not location else location.split(',')[0]
@@ -26,7 +26,7 @@ def main():
         except Exception:
                 print("Failed to load secrets.json")
                 return 1
-        print(weather(location=location, metric=False))
+        print(weather(location=location))
 
 if __name__ == "__main__":
         ret = main()

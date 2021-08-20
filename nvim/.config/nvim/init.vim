@@ -56,6 +56,7 @@ set colorcolumn=80
 " Theme
 syntax on
 colorscheme onedark
+set termguicolors
 
 " Line Wrappiing
 set wrap

@@ -57,6 +57,9 @@ set colorcolumn=80
 syntax on
 colorscheme onedark
 
+" Line Wrappiing
+set wrap
+
 " NERDTree Configuration
 autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif

@@ -5,6 +5,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'sheerun/vim-polyglot'
 Plug 'joshdick/onedark.vim'
+Plug 'chrisbra/Colorizer'
 Plug 'lervag/vimtex'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
@@ -59,6 +60,9 @@ set termguicolors
 
 " Line Wrappiing
 set wrap
+
+" Highlight Colors
+autocmd BufEnter * ColorHighlight
 
 " NERDTree Configuration
 autocmd VimEnter * NERDTree | wincmd p

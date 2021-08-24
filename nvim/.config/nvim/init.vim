@@ -74,5 +74,11 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 nnoremap <C-PageUp> : tabp <CR>
 nnoremap <C-PageDown> : tabn <CR>
 nnoremap <C-n> : tabnew <CR>
-nnoremap <C-b> : NERDTreeFocus <CR>
+nnoremap <C-b> : call NERDTreeFocusAndRefresh() <CR>
+
+" https://stackoverflow.com/a/65743329
+function NERDTreeFocusAndRefresh()
+    :NERDTreeFocus
+    :NERDTreeRefreshRoot
+endfunction
 

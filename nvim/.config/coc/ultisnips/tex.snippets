@@ -1,0 +1,64 @@
+# LaTeX Snippets
+
+# Many of these are adopted from https://github.com/gillescastel/latex-snippets
+# MIT License, available in LICENSE-tex-snips
+
+snippet template "Basic Article Template" b
+% Article
+\documentclass{article}
+
+% Packages
+\usepackage[letterpaper, portrait, margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{setspace}
+
+% Package Configuration
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=blue,
+	urlcolor=blue
+}
+\titlespacing*{\section}{0pt}{6ex}{4ex}
+
+% Document Information
+\newcommand{\doctitle}{$1}
+\newcommand{\docsubtitle}{$2}
+\newcommand{\docauthor}{$3}
+
+% Create Header
+\title{%
+	\textbf{\Huge{\doctitle}}\\\\
+	\docsubtitle
+}
+\author{\normalsize{\docauthor}}
+\date{\normalsize{\today}}
+
+% Document Content
+\begin{document}
+
+	% Basic Setup
+	\maketitle
+	\noindent\rule{\textwidth}{1pt}
+	\doublespacing
+	\tableofcontents
+	\singlespacing
+	\pagebreak
+	
+	\section{$4}
+
+	$0
+
+\end{document}
+endsnippet
+
+snippet beg "begin/end block" bA
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+

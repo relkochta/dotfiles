@@ -16,7 +16,7 @@ Plug 'ryanoasis/vim-devicons'
 " End Vim-Plug
 call plug#end()
 
-" Lightline Configuration
+" Airline Configuration
 "let g:lightline = {
 "      \ 'colorscheme': 'onedark',
 "      \ }
@@ -25,7 +25,7 @@ let g:airline_theme='onedark'
 " Install Coc Extensions
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-java',
             \ 'coc-tsserver', 'coc-pairs', 'coc-pyright', 'coc-vimtex',
-            \ 'coc-sh', 'coc-css', 'coc-go', 'coc-html']
+            \ 'coc-sh', 'coc-css', 'coc-go', 'coc-html', 'coc-snippets']
 
 " Coc Configuration
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
@@ -33,6 +33,17 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 
 " Vimtex
 let g:vimtex_view_method = 'zathura'
+
+" Disable TeX Conceal
+" https://vi.stackexchange.com/a/17688
+let g:tex_conceal = ''
+set conceallevel = 0
+
+" Code Snippets
+" https://github.com/neoclide/coc-snippets
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
 
 " Tab as 4 Spaces (by default)
 " https://stackoverflow.com/a/234578

@@ -14,6 +14,7 @@ snippet template "Basic Article Template" b
 \usepackage{titlesec}
 \usepackage{lipsum}
 \usepackage{setspace}
+\usepackage[T1]{fontenc}
 
 % Package Configuration
 \hypersetup{
@@ -54,6 +55,101 @@ snippet template "Basic Article Template" b
 	$0
 
 \end{document}
+endsnippet
+
+snippet classtemplate "Class Notes Template" b
+% Article
+\documentclass{article}
+
+% Packages
+\usepackage[letterpaper, portrait, margin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage[T1]{fontenc}
+\usepackage{courier}
+\usepackage{amsmath}
+
+\lstdefinestyle{CStyle}{
+	numbers=left,
+	tabsize=4,
+	frame=lines,
+	keywordstyle=\color{magenta!92!green},
+	commentstyle=\color{darkgray},
+	stringstyle=\color{orange},
+	showstringspaces=false,
+	xleftmargin=\parindent,
+	numberstyle=\small,
+	language=c,
+}
+
+% Package Configuration
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=blue,
+	urlcolor=blue
+}
+\titlespacing*{\section}{0pt}{6ex}{4ex}
+
+% Document Information
+\newcommand{\doctitle}{$1}
+\newcommand{\docsubtitle}{$2}
+\newcommand{\docauthor}{$3}
+\newcommand{\docprofessor}{$4}
+\newcommand{\docuniversity}{$5}
+\newcommand{\docsemester}{$6}
+
+% Create Header
+\title{%
+	\textbf{\Huge{\doctitle}}\\\\
+	\docsubtitle
+}
+\author{%
+	\normalsize{\docauthor} \\\\
+	\normalsize{\docprofessor \\ $\bullet$ \docuniversity \\ $\bullet$ \docsemester}
+}
+\date{}
+
+% Document Content
+\begin{document}
+
+	% Basic Setup
+	\maketitle
+	\noindent\rule{\textwidth}{1pt}
+	\doublespacing
+	\tableofcontents
+	\singlespacing
+	\pagebreak
+	
+	\section{$7}
+
+	$0
+
+\end{document}
+endsnippet
+
+# --- Some common symbols that I don't want to memorize ---
+
+snippet ... "Elpisis" iA
+\ldots
+endsnippet
+
+snippet ccode "C Code" b
+\begin{lstlisting}[language=c,style=CStyle,caption={$1}]
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+	$0
+
+	return 0;
+}
+\end{lstlisting}
 endsnippet
 
 snippet beg "begin/end block" bA

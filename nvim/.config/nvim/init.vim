@@ -37,7 +37,7 @@ let g:vimtex_view_method = 'zathura'
 " Disable TeX Conceal
 " https://vi.stackexchange.com/a/17688
 let g:tex_conceal = ''
-set conceallevel = 0
+set conceallevel=0
 
 " Code Snippets
 " https://github.com/neoclide/coc-snippets

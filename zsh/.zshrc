@@ -16,11 +16,14 @@ HYPHEN_INSENSITIVE="true"
 # I prefer to quote URLs anyway
 DISABLE_MAGIC_FUNCTIONS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
 # --- User configuration ---
+
+# Shell
+bindkey -v
 
 # Environment variables
 export LANG=en_US.UTF-8
@@ -32,4 +35,6 @@ export PATH="$PATH:$HOME/.cargo/bin:$HOME/bin"
 # Aliases
 alias vi=nvim
 alias vim=nvim
+alias ls=lsd
+alias cmsc216-indent="indent -npsl -br -i4 -di3 -ce -npcs -brf -sob -cli4 -nbbo -nut -l78"
 

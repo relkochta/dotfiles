@@ -1,26 +1,37 @@
 " Neovim Configuration
 
-" Vim-Plug
+" ------ Vim-Plug ------
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'sheerun/vim-polyglot'
-Plug 'joshdick/onedark.vim'
+" Appearance
+Plug 'arzg/vim-colors-xcode'
 Plug 'chrisbra/Colorizer'
-Plug 'lervag/vimtex'
+Plug 'ryanoasis/vim-devicons'
+
+" Language Plugins
+Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'lervag/vimtex'
+Plug 'liuchengxu/vista.vim'
+
+" Navigation/Info
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'akinsho/nvim-bufferline.lua'
-Plug 'ryanoasis/vim-devicons'
 
-" End Vim-Plug
+" Focus
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
+" ------ End Vim-Plug ------
 call plug#end()
+" Theme
+syntax on
+colorscheme xcodedark
+set termguicolors
 
 " Airline Configuration
-"let g:lightline = {
-"      \ 'colorscheme': 'onedark',
-"      \ }
-let g:airline_theme='onedark'
+let g:airline_theme='xcodedark'
 
 " Install Coc Extensions
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-java',
@@ -31,8 +42,13 @@ let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-java',
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 				        \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+" Vista
+let g:vista_default_executive = 'coc'
+let g:vista_stay_on_open = 0
+
 " Vimtex
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_quickfix_mode = 0
 
 " Disable TeX Conceal
 " https://vi.stackexchange.com/a/17688
@@ -64,11 +80,6 @@ set number
 " Color Column (at 80 columns)
 set colorcolumn=80
 
-" Theme
-syntax on
-colorscheme onedark
-set termguicolors
-
 " Line Wrappiing
 set wrap
 
@@ -79,12 +90,13 @@ autocmd BufEnter * ColorHighlight
 autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+autocmd BufWinEnter * NERDTreeMirror
 
 " Keyboard Shortcuts
 nnoremap <C-PageUp> : tabp <CR>
 nnoremap <C-PageDown> : tabn <CR>
 nnoremap <C-n> : tabnew <CR>
+nnoremap <F6> : Goyo <CR>
 nnoremap <C-b> : call NERDTreeFocusAndRefresh() <CR>
 
 " https://stackoverflow.com/a/65743329
@@ -92,4 +104,24 @@ function NERDTreeFocusAndRefresh()
     :NERDTreeFocus
     :NERDTreeRefreshRoot
 endfunction
+
+" Toggle NERDTree & Limelight with Goyo
+function! s:goyo_enter()
+    Limelight
+    NERDTreeClose
+    
+    set noshowmode
+    set noshowcmd
+    set scrolloff=999
+endfunction
+function! s:goyo_leave()
+    Limelight!
+    NERDTree
+
+    set noshowmode
+    set noshowcmd
+    set scrolloff=0
+endfunction
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 

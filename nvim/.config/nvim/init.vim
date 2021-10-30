@@ -10,7 +10,7 @@ Plug 'ryanoasis/vim-devicons'
 
 " Language Plugins
 Plug 'sheerun/vim-polyglot'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
 Plug 'lervag/vimtex'
 Plug 'liuchengxu/vista.vim'
 
@@ -33,17 +33,8 @@ set termguicolors
 " Airline Configuration
 let g:airline_theme='xcodedark'
 
-" Install Coc Extensions
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-java',
-            \ 'coc-tsserver', 'coc-pairs', 'coc-pyright', 'coc-vimtex',
-            \ 'coc-sh', 'coc-css', 'coc-go', 'coc-html', 'coc-snippets']
-
-" Coc Configuration
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-				        \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 " Vista
-let g:vista_default_executive = 'coc'
+let g:vista_default_executive = 'ale'
 let g:vista_stay_on_open = 0
 
 " Vimtex

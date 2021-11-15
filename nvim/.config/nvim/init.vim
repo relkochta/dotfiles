@@ -10,7 +10,7 @@ Plug 'ryanoasis/vim-devicons'
 
 " Language Plugins
 Plug 'sheerun/vim-polyglot'
-Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
 Plug 'liuchengxu/vista.vim'
 
@@ -25,16 +25,32 @@ Plug 'junegunn/limelight.vim'
 
 " ------ End Vim-Plug ------
 call plug#end()
+
 " Theme
 syntax on
 colorscheme xcodedark
 set termguicolors
+"
+" Install Coc Extensions
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-java',
+            \ 'coc-tsserver', 'coc-pairs', 'coc-pyright', 'coc-vimtex',
+            \ 'coc-sh', 'coc-css', 'coc-go', 'coc-html', 'coc-snippets']
+
+" Coc Configuration
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+				        \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Code Snippets
+" https://github.com/neoclide/coc-snippets
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
 
 " Airline Configuration
 let g:airline_theme='xcodedark'
 
 " Vista
-let g:vista_default_executive = 'ale'
+let g:vista_default_executive = 'coc'
 let g:vista_stay_on_open = 0
 
 " Vimtex
@@ -45,12 +61,6 @@ let g:vimtex_quickfix_mode = 0
 " https://vi.stackexchange.com/a/17688
 let g:tex_conceal = ''
 set conceallevel=0
-
-" Code Snippets
-" https://github.com/neoclide/coc-snippets
-inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
-let g:coc_snippet_next = '<TAB>'
-let g:coc_snippet_prev = '<S-TAB>'
 
 " Tab as 4 Spaces (by default)
 " https://stackoverflow.com/a/234578

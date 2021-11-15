@@ -26,11 +26,15 @@ Plug 'junegunn/limelight.vim'
 " ------ End Vim-Plug ------
 call plug#end()
 
+" Neovide Configuration
+let g:neovide_cursor_animation_length = 0.13
+set guifont=Iosevka:h14
+
 " Theme
 syntax on
 colorscheme xcodedark
 set termguicolors
-"
+
 " Install Coc Extensions
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-java',
             \ 'coc-tsserver', 'coc-pairs', 'coc-pyright', 'coc-vimtex',

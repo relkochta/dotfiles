@@ -1,0 +1,7 @@
+/* For styling the rendered Markdown */
+
+@media print {
+    h1 {
+        page-break-before: always;
+    }
+}

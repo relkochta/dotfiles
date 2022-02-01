@@ -39,5 +39,4 @@ export PATH="$PATH:$HOME/.cargo/bin:$HOME/bin"
 alias vi=nvim
 alias vim=nvim
 alias ls=lsd
-alias cmsc216-indent="indent -npsl -br -i4 -di3 -ce -npcs -brf -sob -cli4 -nbbo -nut -l78"
 

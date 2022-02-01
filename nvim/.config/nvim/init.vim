@@ -38,7 +38,8 @@ set termguicolors
 " Install Coc Extensions
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-java',
             \ 'coc-tsserver', 'coc-pairs', 'coc-pyright', 'coc-vimtex',
-            \ 'coc-sh', 'coc-css', 'coc-go', 'coc-html', 'coc-snippets']
+            \ 'coc-sh', 'coc-css', 'coc-go', 'coc-html', 'coc-snippets',
+            \ 'coc-rls', 'coc-solargraph']
 
 " Coc Configuration
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()

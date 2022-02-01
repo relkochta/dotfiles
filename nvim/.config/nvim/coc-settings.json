@@ -1,3 +1,11 @@
 {
-    "diagnostic.checkCurrentLine": true
+    "diagnostic.checkCurrentLine": true,
+    "languageserver": {
+        "ocaml-lsp": {
+            "command": "opam",
+            "args": ["config", "exec", "--", "ocamllsp"],
+            "filetypes": ["ocaml", "reason"]
+        }
+    }
 }
+

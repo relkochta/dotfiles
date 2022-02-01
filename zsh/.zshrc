@@ -22,6 +22,9 @@ source $ZSH/oh-my-zsh.sh
 
 # --- User configuration ---
 
+# opam configuration
+[[ ! -r /home/relkochta/.opam/opam-init/init.zsh ]] || source /home/relkochta/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
 # Shell
 bindkey -v
 

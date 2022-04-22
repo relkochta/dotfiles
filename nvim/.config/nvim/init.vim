@@ -34,8 +34,9 @@ set guifont=Iosevka:h14
 syntax on
 colorscheme xcodedark
 set termguicolors
+let g:airline_theme='xcodedark'
 
-" Install Coc Extensions
+" Coc Language Servers
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-java',
             \ 'coc-tsserver', 'coc-pairs', 'coc-pyright', 'coc-vimtex',
             \ 'coc-sh', 'coc-css', 'coc-go', 'coc-html', 'coc-snippets',
@@ -51,18 +52,15 @@ inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
 let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
 
-" Airline Configuration
-let g:airline_theme='xcodedark'
-
 " Vista
 let g:vista_default_executive = 'coc'
 let g:vista_stay_on_open = 0
 
-" Vimtex
+" VimTeX
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_quickfix_mode = 0
 
-" Disable TeX Conceal
+" Disable VimTeX Conceal
 " https://vi.stackexchange.com/a/17688
 let g:tex_conceal = ''
 set conceallevel=0
@@ -83,10 +81,7 @@ set cursorline
 " Line Numbers
 set number
 
-" Color Column (at 80 columns)
-set colorcolumn=80
-
-" Line Wrappiing
+" Line Wrapping
 set wrap
 
 " Highlight Colors
@@ -99,17 +94,36 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 autocmd BufWinEnter * NERDTreeMirror
 
 " Keyboard Shortcuts
-nnoremap <C-PageUp> : tabp <CR>
-nnoremap <C-PageDown> : tabn <CR>
-nnoremap <C-n> : tabnew <CR>
-nnoremap <F6> : Goyo <CR>
-nnoremap <C-b> : call NERDTreeFocusAndRefresh() <CR>
+nnoremap <C-PageUp> :tabp <CR>
+nnoremap <C-PageDown> :tabn <CR>
+nnoremap <C-n> :tabnew <CR>
+nnoremap <F6> :Goyo <CR>
+nnoremap <F5> :NERDTreeToggle() <CR>
+nnoremap <C-b> :call NERDTreeFocusAndRefresh() <CR>
 
 " https://stackoverflow.com/a/65743329
 function NERDTreeFocusAndRefresh()
     :NERDTreeFocus
     :NERDTreeRefreshRoot
 endfunction
+
+" Toggle light/dark color scheme
+" https://vi.stackexchange.com/a/6129
+let s:mybg = "dark"
+function! BackgroundToggle()
+    if (s:mybg ==? "light")
+        colorscheme xcodedark
+        let g:airline_theme = "xcodedark"
+        :AirlineRefresh
+        let s:mybg = "dark"
+    else
+        colorscheme xcodelight
+        let g:airline_theme = "xcodelight"
+        :AirlineRefresh
+        let s:mybg = "light"
+    endif
+endfunction
+nnoremap <F7> :call BackgroundToggle() <CR>
 
 " Toggle NERDTree & Limelight with Goyo
 function! s:goyo_enter()

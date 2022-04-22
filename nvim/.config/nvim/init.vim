@@ -59,6 +59,7 @@ let g:vista_stay_on_open = 0
 " VimTeX
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_quickfix_mode = 0
+let g:vimtex_view_forward_search_on_start = 0
 
 " Disable VimTeX Conceal
 " https://vi.stackexchange.com/a/17688

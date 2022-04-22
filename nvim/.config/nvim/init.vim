@@ -151,3 +151,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " C
 autocmd FileType c setlocal colorcolumn=80
 
+" TeX
+autocmd FileType tex setlocal spell spelllang=en_us
+

@@ -145,3 +145,8 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
+" --- Per-Language Settings ---
+
+" C
+autocmd FileType c setlocal colorcolumn=80
+

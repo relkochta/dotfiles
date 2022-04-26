@@ -5,7 +5,6 @@ call plug#begin(stdpath('data') . '/plugged')
 
 " Appearance
 Plug 'arzg/vim-colors-xcode'
-Plug 'chrisbra/Colorizer'
 Plug 'ryanoasis/vim-devicons'
 
 " Language Plugins
@@ -84,9 +83,6 @@ set number
 
 " Line Wrapping
 set wrap
-
-" Highlight Colors
-autocmd BufEnter * ColorHighlight
 
 " NERDTree Configuration
 autocmd VimEnter * NERDTree | wincmd p

@@ -35,6 +35,11 @@ colorscheme xcodedark
 set termguicolors
 let g:airline_theme='xcodedark'
 
+" Activate Bufferline
+lua << EOF
+require("bufferline").setup{}
+EOF
+
 " Coc Language Servers
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-java',
             \ 'coc-tsserver', 'coc-pairs', 'coc-pyright', 'coc-vimtex',

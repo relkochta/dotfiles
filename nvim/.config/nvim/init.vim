@@ -17,6 +17,14 @@ Plug 'liuchengxu/vista.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'akinsho/nvim-bufferline.lua'
+Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
+Plug 'bagrat/vim-buffet'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'spolu/dwm.vim'
+
+" Git
+Plug 'tpope/vim-fugitive'
 
 " Focus
 Plug 'junegunn/goyo.vim'
@@ -26,8 +34,10 @@ Plug 'junegunn/limelight.vim'
 call plug#end()
 
 " Neovide Configuration
-let g:neovide_cursor_animation_length = 0.13
-set guifont=Iosevka:h14
+if exists('g:neovide')
+    let g:neovide_cursor_animation_length = 0.13
+    set guifont=Iosevka:h14
+endif
 
 " Theme
 syntax on
@@ -37,7 +47,7 @@ let g:airline_theme='xcodedark'
 
 " Activate Bufferline
 lua << EOF
-require("bufferline").setup{}
+require('bufferline').setup {}
 EOF
 
 " Coc Language Servers
@@ -90,15 +100,18 @@ set number
 set wrap
 
 " NERDTree Configuration
-autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd BufWinEnter * NERDTreeMirror
 
 " Keyboard Shortcuts
-nnoremap <C-PageUp> :tabp <CR>
-nnoremap <C-PageDown> :tabn <CR>
-nnoremap <C-n> :tabnew <CR>
+nnoremap <C-p> :Files<CR>
+noremap <Tab> :bn<CR>
+noremap <S-Tab> :bp<CR>
+noremap <Leader><Tab> :Bw<CR>
+noremap <Leader><S-Tab> :Bw!<CR>
+noremap <C-t> :tabnew<CR>
+noremap <C-w> :bdelete<CR>
 nnoremap <F6> :Goyo <CR>
 nnoremap <F5> :NERDTreeToggle() <CR>
 nnoremap <C-b> :call NERDTreeFocusAndRefresh() <CR>

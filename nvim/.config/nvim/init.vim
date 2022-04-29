@@ -6,6 +6,7 @@ call plug#begin(stdpath('data') . '/plugged')
 " Appearance
 Plug 'arzg/vim-colors-xcode'
 Plug 'ryanoasis/vim-devicons'
+Plug 'arzg/vim-rust-syntax-ext'
 
 " Language Plugins
 Plug 'sheerun/vim-polyglot'

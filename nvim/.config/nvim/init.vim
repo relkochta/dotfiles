@@ -44,6 +44,7 @@ endif
 syntax on
 colorscheme xcodedark
 set termguicolors
+set background=dark
 let g:airline_theme='xcodedark'
 
 " Activate Bufferline

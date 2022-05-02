@@ -46,6 +46,7 @@ colorscheme xcodedark
 set termguicolors
 set background=dark
 let g:airline_theme='xcodedark'
+let g:airline_powerline_fonts=1
 
 " Activate Bufferline
 lua << EOF

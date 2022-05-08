@@ -163,11 +163,23 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
+" Adjust font size dynamically
+" https://stackoverflow.com/a/51424640
+let s:fontsize = 14
+function! AdjustFontSize(amount)
+    let s:fontsize = s:fontsize+a:amount
+    :execute "GuiFont! Iosevka:h" . s:fontsize
+endfunction
+noremap <C-Up> :call AdjustFontSize(1)<CR>
+noremap <C-Down> :call AdjustFontSize(-1)<CR>
+
 " --- Per-Language Settings ---
 
 " C
 autocmd FileType c setlocal colorcolumn=80
 
-" TeX
+" Documents/Text
 autocmd FileType tex setlocal spell spelllang=en_us
+autocmd FileType tex setlocal linebreak
+autocmd FileType markdown setlocal linebreak
 

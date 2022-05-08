@@ -181,5 +181,7 @@ autocmd FileType c setlocal colorcolumn=80
 " Documents/Text
 autocmd FileType tex setlocal spell spelllang=en_us
 autocmd FileType tex setlocal linebreak
+autocmd FileType bib setlocal linebreak
 autocmd FileType markdown setlocal linebreak
+autocmd FileType markdown setlocal spell spelllang=en_us
 

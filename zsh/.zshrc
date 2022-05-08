@@ -30,7 +30,7 @@ bindkey -v
 
 # Environment variables
 export LANG=en_US.UTF-8
-export EDITOR=vim
+export EDITOR=nvim
 
 # Path
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/bin"

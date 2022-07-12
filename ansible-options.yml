@@ -1,0 +1,17 @@
+---
+# This file is not deployed to the home directory;
+# it is read by Ansible to provide addititional configuration.
+# See https://github.com/relkochta/dotfiles-ansible for more information.
+
+# Git repositories to clone into the home directory.
+# Mainly useful for ZSH plugins.
+git_repositories:
+  - repo: "https://github.com/ohmyzsh/ohmyzsh.git"
+    dest: ".oh-my-zsh"
+  - repo: "https://github.com/romkatv/powerlevel10k.git"
+    dest: ".oh-my-zsh/custom/themes/powerlevel10k"
+  - repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
+    dest: ".oh-my-zsh/custom/plugins/zsh-autosuggestions"
+  - repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    dest: ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+
